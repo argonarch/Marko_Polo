@@ -1,0 +1,46 @@
+{
+    "MUSIC": [
+        "musica",
+        "cancion",
+        "album",
+        "disco",
+        "spotify"
+    ],
+    "LIGHT": [
+        "luz",
+        "iluminacion",
+        "luces"
+    ],
+    "INTERNET": [
+        "internet",
+        "google",
+        "navegador"
+    ],
+    "TIME": [
+        "hora",
+        "horario"
+    ],
+    "VIDEO": [
+        "youtube",
+        "videos"
+    ],
+    "IMAGES": [
+        "imagen",
+        "fotos"
+    ],
+    "MONITOR": [
+        "monitor",
+        "pantalla"
+    ],
+    "VOLUME": [
+        "volumen",
+        "sonido"
+    ],
+    "HI": [
+        "hola"
+    ],
+    "BYE": [
+        "chau",
+        "chao"
+    ]
+}

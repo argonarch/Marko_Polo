@@ -1,0 +1,112 @@
+{
+    "a_go": [
+        "pone",
+        "activa",
+        "abri",
+        "abrite",
+        "abre",
+        "encend",
+        "enciende",
+        "ejecuta",
+        "reproducir",
+        "prende"
+    ],
+    "a_stop": [
+        "cerrar",
+        "cerrame",
+        "cierra",
+        "detene",
+        "detiene",
+        "apaga",
+        "cortar",
+        "cortame",
+        "corta"
+    ],
+    "a_up": [
+        "aumenta",
+        "incrementa",
+        "subi",
+        "subeme",
+        "intensifica"
+    ],
+    "a_down": [
+        "disminuir",
+        "baja",
+        "atenua"
+    ],
+    "a_search": [
+        "busca",
+        "dame",
+        "quiero",
+        "mostra",
+        "muestrame",
+        "decime",
+        "como"
+    ],
+    "o_music": [
+        "musica",
+        "cancion",
+        "album",
+        "disco",
+        "spotify"
+    ],
+    "o_volume": [
+        "volumen"
+    ],
+    "o_ligth": [
+        "luz",
+        "iluminacion",
+        "luces"
+    ],
+    "o_inet": [
+        "internet",
+        "google"
+    ],
+    "o_time": [
+        "hora"
+    ],
+    "o_video": [
+        "youtube",
+        "videos"
+    ],
+    "o_windows": [
+        "ventana",
+        "programa"
+    ],
+    "o_monitor": [
+        "monitor",
+        "pantalla"
+    ],
+    "m_up": [
+        "arriba",
+        "superior"
+    ],
+    "m_donw": [
+        "abajo",
+        "inferior"
+    ],
+    "m_outset": [
+        "afuera",
+        "exterior"
+    ],
+    "m_inside": [
+        "adentro",
+        "interior"
+    ],
+    "e_hi": [
+        "hola"
+    ],
+    "e_goodbye": [
+        "chau",
+        "chao",
+        "adios"
+    ],
+    "o_browser": [
+        "firefox",
+        "navegador"
+    ],
+    "o_image": [
+        "imagen",
+        "foto"
+    ]
+}
