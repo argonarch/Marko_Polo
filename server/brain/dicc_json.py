@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
-
-frase = "bajar videos de gatitos "
+import executer
 
 def tagcreator(file_json,frase,modo):
     commands = []
@@ -32,19 +31,25 @@ def detect_commands(sector, set_commands):
     #print(parecidos)
     return(parecidos)
 
-# Filtro cero para frases con comandos especiales
-command_special = tagcreator("commands_specials.json", frase, 1)    # Modo 1 detecta solo la primera coincidencia
+def entrada(frase):
+    # Filtro cero para frases con comandos especiales
+    command_special = tagcreator("commands_specials.json", frase, 1)
+    if command_special != list():
+        print(command_special)
+        executer.ejecutar(0, frase, 0)
+        return
+    else:
+        # Para detectar el sector (primer filtro)
+        sector = tagcreator("detect_sector.json", frase, 1) # Modo 1 detecta solo la primera coincidencia
 
-# Para detectar el sector (primer filtro)
-sector = tagcreator("detect_sector.json", frase, 1)
-
-# Para detectar los comandos en la frase (segundo filtro)
-set_commands = set(tagcreator("commands.json", frase, 2))           # Modo 2 detecta todas las coincidencias
-
-# Para separar los comandos de la frase de los comandos habilitados por sector
-exet_commands = detect_commands(sector, set_commands)
-
-print(command_special)
-print(sector)
-print(set_commands)
-print(exet_commands)
+        # Para detectar los comandos en la frase (segundo filtro)
+        set_commands = set(tagcreator("commands.json", frase, 2)) # Modo 2 detecta todas las coincidencias
+        
+        # Para separar los comandos de la frase de los comandos habilitados por sector
+        tags = detect_commands(sector, set_commands)
+        tags_list = sorted(list(tags), key=str.lower)
+        print(sector)
+        print(set_commands)
+        print(tags_list)
+        executer.ejecutar(sector, tags_list, frase)
+        return

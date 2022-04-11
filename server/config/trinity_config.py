@@ -1,1 +1,0 @@
-../brain/trinity_config.py
