@@ -5,8 +5,8 @@ import json
 import dicc_json
 
 
-ruta = "192.168.0.5"
-Topic = "sandia"
+ruta = "broker.emqx.io"
+Topic = "sandia-con-pure-y-tostada"
 
 def input_Primary (dicc_python):
 	user = str(dicc_python["Usuario"])
