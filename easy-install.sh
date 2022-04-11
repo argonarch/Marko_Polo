@@ -2,7 +2,7 @@
 
 cd ~
 
-git clone https://github.com/jazx/trinity.git
+git clone https://github.com/argonarch/trinity.git
 
 pip install paho-mqtt
 
