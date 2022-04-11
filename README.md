@@ -29,10 +29,9 @@ Cada cliente tiene su propio README.
 
 ### Como ejecutar en Ubuntu y derivados:
 
-- Descargar/clonar este repositorio
-- Instalar Dependencias
+- Instalar Dependencias y Repositorio con:
 
-        sudo apt install python3-pyaudio libatlas-base-dev screen
+        curl -s "https://raw.githubusercontent.com/argonarch/trinity/main/easy-install.sh" | sudo bash
         
 - Ejecutar:
 
