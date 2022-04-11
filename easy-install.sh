@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~
+cd $HOME
 
 git clone https://github.com/argonarch/trinity.git
 
