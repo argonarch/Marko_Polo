@@ -31,7 +31,7 @@
     ],
     "a_down": [
         "disminuir",
-        "baja",
+        "bajar",
         "atenua"
     ],
     "a_search": [
@@ -41,7 +41,8 @@
         "mostra",
         "muestrame",
         "decime",
-        "como"
+        "como",
+        "buscar"
     ],
     "o_music": [
         "musica",
@@ -53,7 +54,7 @@
     "o_volume": [
         "volumen"
     ],
-    "o_ligth": [
+    "o_light": [
         "luz",
         "iluminacion",
         "luces"
@@ -108,5 +109,8 @@
     "o_image": [
         "imagen",
         "foto"
+    ],
+    "c_download": [
+        "bajar"
     ]
 }
