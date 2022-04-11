@@ -22,7 +22,7 @@ Dentro del sector VOLUMEN, la palabra "bajar" equivale normalmente a la accion d
 Mientras que dentro del sector INTERNET, la palabra "bajar" suele equivaler a la accion de "descargar/download".
 Con el uso de los dos filtros se pueden configurar con presicion el significado de las palabras.
 
-Para el uso de los diccionarios puede ver la documentacion y los videos de markopolo.
+Para el uso de los diccionarios puede ver la documentacion y los videos de markopolo.,
 
 
 Cada cliente tiene su propio README.
