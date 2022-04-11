@@ -6,7 +6,8 @@ def ejecutar(sector, tags, frase):
 		file_exec = "sectors/SPECIALS/" + tags
 	else:
 		separador = "+"
-		file_exec = "sectors/" + sector + "/" + separador.join(tags) + " " + frase
+		print(tags)
+		file_exec = "sectors/" + sector + "/" + separador.join(tags)
 	print(file_exec)
-	subprocess.run( ['sh', file_exec], stdin=subprocess.PIPE)
+	subprocess.run( ['bash', file_exec, frase], stdin=subprocess.PIPE)
 	return
