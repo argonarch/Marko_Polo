@@ -31,7 +31,7 @@ Cada cliente tiene su propio README.
 
 - Instalar Dependencias y Repositorio con:
 
-        curl -s "https://raw.githubusercontent.com/argonarch/trinity/main/easy-install.sh" | sudo bash
+        curl -s "https://raw.githubusercontent.com/argonarch/trinity/main/easy-install.sh" | bash
         
 - Ejecutar:
 
