@@ -1,10 +1,10 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
-trinity-randomwav endwork &
+bash ../bin/trinity-randomwav working
 
 xset dpms force on
 
-echo 'El monitor fue encendido'
+bash ../bin/trinity-message "Monitor" "Monitor Encendido"
+bash ../bin/trinity-randomwav endwork

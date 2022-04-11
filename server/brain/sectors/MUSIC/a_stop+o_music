@@ -1,11 +1,10 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
+bash ../bin/trinity-randomwav working
 
-pkill spotify 
+pkill spotify
 
-markopolo-randomwav ../voice/endwork
-
-echo 'Cerrando Spotify'
+bash ../bin/trinity-message "Musica" "Cerrando Spotify"
+bash ../bin/trinity-randomwav endwork

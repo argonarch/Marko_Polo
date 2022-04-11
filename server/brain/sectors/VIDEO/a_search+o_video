@@ -1,14 +1,12 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
-aplay `ls ../voice/working/* | shuf -n 1`
+bash ../bin/trinity-randomwav working
 
-TARGET=`echo $INGRESO | sed 's/\(^.*videos+de+\|^.*youtube+\)//g'`
+TARGET=`echo $INGRESO | sed 's/\(^.*de\)//g'`
 
 firefox --new-tab "https://www.youtube.com/results?search_query=$TARGET" &> /dev/null &
 
-aplay `ls ../voice/endwork/* | shuf -n 1`
-
-echo 'Abriendo Youtube...'
+bash ../bin/trinity-message "Video" "Buscando video en youtube"
+bash ../bin/trinity-randomwav endwork

@@ -3,4 +3,4 @@
 INGRESO=$1
 
 bash ../bin/trinity-randomwav endwork
-bash ../bin/trinity-message "Volume" "Se desactivo el volumen"
+bash ../bin/trinity-message "Luz" "Se Activo la luz"

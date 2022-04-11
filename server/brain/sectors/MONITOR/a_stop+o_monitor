@@ -1,10 +1,9 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
-trinity-randomwav endwork &
+bash ../bin/trinity-randomwav working
 
 xset dpms force off
 
-echo 'El monitor fue apagado'
+bash ../bin/trinity-randomwav endwork

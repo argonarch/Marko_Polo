@@ -1,3 +1,4 @@
 #!/bin/bash
 
-trinity-randomwav working
+bash ../bin/trinity-randomwav endwork
+bash ../bin/trinity-message "Video" "Se activo comando descarga"

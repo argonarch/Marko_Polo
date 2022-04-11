@@ -1,10 +1,11 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
-trinity-randomwav working &
 
-firefox &> /dev/null &
+bash ../bin/trinity-randomwav working
 
-echo 'Firefox fue abierto'
+firefox
+
+bash ../bin/trinity-message "Internet" "Abriendo Firefox"
+bash ../bin/trinity-randomwav endwork

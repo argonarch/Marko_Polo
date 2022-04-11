@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
 HORAACTUAL=`date +%H:%M`
 
-echo "Son las $HORAACTUAL"
+bash ../bin/trinity-message "Especial" "La hora es "$HORAACTUAL""
+bash ../bin/trinity-randomwav endwork

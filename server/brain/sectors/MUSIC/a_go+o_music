@@ -1,11 +1,10 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
+bash ../bin/trinity-randomwav working
 
-spotify 2&> /dev/null &
+spotify
 
-markopolo-randomwav ../voice/endwork
-
-echo 'Abriendo Spotify'
+bash ../bin/trinity-message "Musica" "Abriendo Spotify"
+bash ../bin/trinity-randomwav endwork

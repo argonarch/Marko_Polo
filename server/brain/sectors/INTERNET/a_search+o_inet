@@ -1,12 +1,12 @@
 #!/bin/bash
 
-INGRESO=$2
-USUARIO=$1
+INGRESO=$1
 
-trinity-randomwav working &
+bash ../bin/trinity-randomwav working
 
 TARGET=`echo $INGRESO | sed s/^.*internet//g`
 
-firefox --new-tab "https://www.google.com/search?q=$TARGET" &> /dev/null &
+firefox --new-tab "https://www.google.com/search?q=$TARGET" &
 
-echo 'Google fue abierto'
+bash ../bin/trinity-message "Internet" "Buscando en google"
+bash ../bin/trinity-randomwav endwork

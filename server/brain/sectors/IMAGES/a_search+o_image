@@ -2,10 +2,11 @@
 
 INGRESO=$1
 
-bash ../../../bin/trinity-randomwav working
+bash ../bin/trinity-randomwav working
 
-TARGET=`echo $INGRESO | sed 's/\(^.*imagenes+de+\|^.*pinterest+\)//g'`
+TARGET=`echo "$INGRESO" | sed 's/\(^.*de\)//g'`
 
 firefox --new-tab "https://ar.pinterest.com/search/pins/?q=$TARGET" &
 
-bash ../../../bin/trinity-message "Images" "Buscando en Pinterest"
+bash ../bin/trinity-message "Images" "Buscando en Pinterest"
+bash ../bin/trinity-randomwav endwork
