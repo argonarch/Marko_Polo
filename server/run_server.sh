@@ -11,5 +11,3 @@ cd $basedir/brain
 screen -c ../config/screen_conf -S trinity_brain -d -m ./trinity.py
 
 
-echo '--> Reproduciendo saludo'
-trinity-randomwav init 2> /dev/null &
