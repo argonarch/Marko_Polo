@@ -7,7 +7,7 @@ import trinity_client
 
 def Hotword():
     keyword_path = ['keywords/marcopolo_es_linux.ppn']
-    access_key = 'A2HEZ3h7oNfZpCQEcZ7hcQVHfK6WWs7qXc/SKMRZgrqqYKYWlSZR9Q=='
+    access_key = 'poner aqui llave de picovoice'
     library_path = 'lib/libpv_porcupine.so'
     model_path = 'lib/porcupine_params_es.pv'
     sensitivity = [0.5]
