@@ -2,9 +2,7 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
 
 pkill spotify
 
 bash ../bin/trinity-message "Musica" "Cerrando Spotify"
-bash ../bin/trinity-randomwav endwork

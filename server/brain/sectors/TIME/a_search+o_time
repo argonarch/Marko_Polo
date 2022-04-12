@@ -4,4 +4,3 @@
 HORAACTUAL=`date +%H:%M`
 
 bash ../bin/trinity-message "Especial" "La hora es "$HORAACTUAL""
-bash ../bin/trinity-randomwav endwork

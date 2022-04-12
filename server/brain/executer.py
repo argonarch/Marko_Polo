@@ -13,6 +13,8 @@ def ejecutar(sector, tags, frase):
 	print(file_exec)
 	if os.path.exists(file_exec):
 		subprocess.run( ['bash', file_exec, frase], stdin=subprocess.PIPE)
+		os.system("bash ../bin/trinity-randomwav endwork")
 	else:
+		os.system("bash ../bin/trinity-randomwav noscript")
 		print("No se encuentra el archivo del comando")
 	return

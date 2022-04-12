@@ -2,8 +2,7 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
+
 
 xset dpms force off
 
-bash ../bin/trinity-randomwav endwork

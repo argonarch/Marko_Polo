@@ -9,4 +9,3 @@ TARGET=`echo "$INGRESO" | sed 's/\(^.*de\)//g'`
 firefox --new-tab "https://ar.pinterest.com/search/pins/?q=$TARGET" &
 
 bash ../bin/trinity-message "Images" "Buscando en Pinterest"
-bash ../bin/trinity-randomwav endwork

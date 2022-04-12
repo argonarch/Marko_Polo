@@ -3,4 +3,3 @@
 INGRESO=$1
 
 bash ../bin/trinity-message "Bye" "Abrio comando bye"
-bash ../bin/trinity-randomwav endwork

@@ -3,9 +3,8 @@
 INGRESO=$1
 
 
-bash ../bin/trinity-randomwav working
+
 
 firefox
 
 bash ../bin/trinity-message "Internet" "Abriendo Firefox"
-bash ../bin/trinity-randomwav endwork

@@ -2,9 +2,8 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
+
 
 xset dpms force on
 
 bash ../bin/trinity-message "Monitor" "Monitor Encendido"
-bash ../bin/trinity-randomwav endwork

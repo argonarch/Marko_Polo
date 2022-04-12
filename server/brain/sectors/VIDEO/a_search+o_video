@@ -2,11 +2,9 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
 
 TARGET=`echo $INGRESO | sed 's/\(^.*de\)//g'`
 
 firefox --new-tab "https://www.youtube.com/results?search_query=$TARGET" &> /dev/null &
 
 bash ../bin/trinity-message "Video" "Buscando video en youtube"
-bash ../bin/trinity-randomwav endwork

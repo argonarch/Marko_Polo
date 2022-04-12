@@ -2,9 +2,7 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
 
 spotify
 
 bash ../bin/trinity-message "Musica" "Abriendo Spotify"
-bash ../bin/trinity-randomwav endwork

@@ -2,9 +2,8 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
+
 
 pkill firefox
 
 bash ../bin/trinity-message "Internet" "Cerrando Firefox"
-bash ../bin/trinity-randomwav endwork

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+import os
 import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
@@ -14,7 +16,7 @@ def Hotword():
     r = sr.Recognizer()
     porcupine = None
     recorder = None
-
+    os.system("bash voice/trinity-randomwav ready")
     try:
         porcupine = pvporcupine.create(
             access_key=access_key,
@@ -27,7 +29,7 @@ def Hotword():
         recorder.start()
         print("{" + str(keyword_path) + str(sensitivity) + "}")
         print(f'Using device: {recorder.selected_device}')
-
+        
         while True:
             pcm = recorder.read()
             result = porcupine.process(pcm)
@@ -36,10 +38,12 @@ def Hotword():
                 with sr.Microphone() as source:
                     audio = r.listen(source)
                 try:
+                    os.system("bash voice/trinity-randomwav working")
                     texto = r.recognize_google(audio, language="es_AR")
                     texto_lower = trinity_client.limpiar_acentos(texto)
                     print(trinity_client.sender(texto_lower))
                 except sr.UnknownValueError:
+                    os.system("bash voice/trinity-randomwav repit")
                     print("No se escucho la frase")
                 except sr.RequestError as e:
                     print("Error de servicio; {0}".format(e))
