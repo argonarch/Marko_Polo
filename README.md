@@ -14,7 +14,7 @@ Incluye
 ### Funcionamiento:
 MarkoPolo se divide en 2 partes
 - Cliente: Es el encargado de detectar la palabra de activacion, detectar la frase que dice el usario y enviar la frase juntos con otros datos*1 al servidor mediante mqtt
-- Servidor: Se encarga de resivir los datos proporcionados por el cliente, procesarlos y ejecutar los comandos correspondientes que se configuraron para la frase 
+- Servidor: Se encarga de recivir los datos proporcionados por el cliente, procesarlos y ejecutar los comandos correspondientes que se configuraron para la frase 
 
 El servidor esta programado para separar la frase entrante en 3 filtros:
 
