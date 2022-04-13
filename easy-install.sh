@@ -2,6 +2,8 @@
 
 cd $HOME
 
+sudo apt update
+
 sudo apt install python3-pip git python3-pyaudio libatlas-base-dev screen
 
 git clone https://github.com/argonarch/Marko_Polo.git
