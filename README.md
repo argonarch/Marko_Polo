@@ -35,11 +35,15 @@ Para facilidad del usuario se decidio crear un instalador automatico que se inst
         curl -s "https://raw.githubusercontent.com/argonarch/trinity/main/easy-install.sh" | bash
 Por defecto el repositorio se instalara en la carpeta /home/"su usuario"/
 
-Para ejecutar y detener el programa debe inicializar los siguientes archivos dentro de la carpeta markopolo:
+El cliente utiliza "Porcupine" como detector de palabra de activar y para poder utilizalo de debe crear una cuenta en [Picovoice](https://console.picovoice.ai/) e ingresar la llave de acceso que te proporcionan dentro del archivo **/Marko_Polo/client/hotword.py** (en el archivo se encuentra una indicacion de donde se debe pegar la llave)
+
+Para ejecutar y detener el programa debe inicializar los siguientes archivos dentro de la carpeta Marko_Polo:
 
         ./run_trinity.sh                     (para iniciar el asistente)
         ./stop_trinity.sh                    (para detener el asistente)
-        
+
+Si tienes algun problema en el proceso de Instalacion e Ejecucion puedes comunicarlo [aqui](https://github.com/argonarch/Marko_Polo/issues/new) y estare contestandolo lo mas pronto posible
+
 ### Tecnologias
 
 Las tecnologias que se usan en MarkoPolo son:
