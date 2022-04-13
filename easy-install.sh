@@ -2,7 +2,7 @@
 
 cd $HOME
 
-git clone https://github.com/argonarch/trinity.git
+git clone https://github.com/argonarch/Marko_Polo.git
 
 pip install paho-mqtt SpeechRecognition pvporcupine pvrecorder
 
