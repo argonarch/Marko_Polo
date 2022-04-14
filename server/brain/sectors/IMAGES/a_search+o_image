@@ -2,7 +2,6 @@
 
 INGRESO=$1
 
-bash ../bin/trinity-randomwav working
 
 TARGET=`echo "$INGRESO" | sed 's/\(^.*de\)//g'`
 

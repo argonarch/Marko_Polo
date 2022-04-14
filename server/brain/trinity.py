@@ -4,7 +4,6 @@ import paho.mqtt.client as mqtt
 import json
 import dicc_json
 
-
 ruta = "broker.emqx.io"
 Topic = "sandia-con-pure-y-tostada"
 
@@ -31,9 +30,12 @@ def on_message(client, userdata, msg):
 		input_modif = json.loads(input_dicc)
 		input_Primary(input_modif)
 
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
+def initializer_mqtt():
+	client = mqtt.Client()
+	client.on_connect = on_connect
+	client.on_message = on_message
 
-client.connect(ruta, 1883, 60)
-client.loop_forever()
+	client.connect(ruta, 1883, 60)
+	client.loop_forever()
+
+initializer_mqtt()

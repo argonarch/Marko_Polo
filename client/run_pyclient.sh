@@ -7,6 +7,6 @@ echo '  > Cliente python para Trinity'
 
 echo '--> Iniciando el client python (trinity)'
 cd $basedir
-screen -c lib/screen_conf -S trinity_client -d -m python3 ./hotword.py
+screen -c config/screen_conf -S trinity_client -d -m python3 ./hotword.py
 
 

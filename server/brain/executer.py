@@ -13,8 +13,11 @@ def ejecutar(sector, tags, frase):
 	print(file_exec)
 	if os.path.exists(file_exec):
 		subprocess.run( ['bash', file_exec, frase], stdin=subprocess.PIPE)
-		os.system("bash ../bin/trinity-randomwav endwork")
+		replay_m("endwork")
 	else:
-		os.system("bash ../bin/trinity-randomwav noscript")
+		replay_m("noscript")
 		print("No se encuentra el archivo del comando")
 	return
+
+def replay_m(folder):
+    os.system("aplay -q `ls $PWD/../voice/" + folder +"/* | shuf -n 1`" )
