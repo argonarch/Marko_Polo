@@ -57,6 +57,11 @@ Las tecnologias que se usan en MarkoPolo son:
 
 Cabe aclarar que todo el proyecto no hubiera sido posible sin la ayuda de [Jazx](https://github.com/jazx) y su proyecto [Trinity](https://github.com/jazx/trinity) que dio las bases con las que simentar este proyecto
 
+### instalar
+
+sudo apt install python3-pip git python3-pyaudio libatlas-base-dev screen bash
+
+
 ### Notas Finales
 
 El proyecto, aunque ahora mismo se encuentra funcional, aun esta en pañales y se esperan nuevas fucionalidades a futuro, si estas interesado en dar tu grano de arena o tu piedra de 2 kilos al proyecto no lo dudes, la ayuda siempre es bienvenida y aceptada para todos 

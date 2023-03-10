@@ -3,7 +3,7 @@ import os
 import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
-import trinity_client
+import marko_client
 
 def Hotword():
     keyword_path = ['keywords/marcopolo_es_linux.ppn']
@@ -40,8 +40,8 @@ def Hotword():
                 try:
                     replay_m("working")
                     texto = recognizer.recognize_google(audio, language="es_AR")
-                    texto_lower = trinity_client.limpiar_acentos(texto)
-                    print(trinity_client.sender(texto_lower))
+                    texto_lower = marko_client.limpiar_acentos(texto)
+                    print(marko_client.sender(texto_lower))
                 except sr.UnknownValueError:
                     replay_m("repit")
                     print("No se escucho la frase")
