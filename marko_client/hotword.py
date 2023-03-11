@@ -4,15 +4,16 @@ import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
 import marko_client
+from decouple import config
 
 def Hotword():
     keyword_path = ['lib/marcopolo_es_linux.ppn']
-    access_key = '+++ Poner aqui tu access key +++'
+    access_key = config('Token_Picovoce')
     library_path = 'lib/libpv_porcupine.so'
     model_path = 'lib/porcupine_params_es.pv'
     sensitivity = [0.5]
     input_device_index = 1
-
+    
     recognizer = sr.Recognizer()
     porcupine = None
 

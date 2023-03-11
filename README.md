@@ -59,7 +59,7 @@ Cabe aclarar que todo el proyecto no hubiera sido posible sin la ayuda de [Jazx]
 
 ### instalar
 
-sudo apt install python3-pip git python3-pyaudio libatlas-base-dev screen bash
+sudo apt install python3-pip git libatlas-base-dev screen bash portaudio
 
 
 ### Notas Finales

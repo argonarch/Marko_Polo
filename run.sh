@@ -5,9 +5,9 @@ if [ $1 == "install" ]; then
     pip install -r requirements.txt
 elif [ $1 == "start" ]; then
     echo 'start marko_polo client - server'
-    bash -c "./marko_client/run_client.sh start" &
-    bash -c "./marko_server/run_server.sh start" &
+    bash -c "./marko_server/run_server.sh start" 
+    bash -c "./marko_client/run_client.sh start"
 elif [ $1 == "stop" ]; then
-    bash -c "./marko_server/run_server.sh stop" &
-    bash -c "./marko_client/run_client.sh stop" &
+    bash -c "./marko_server/run_server.sh stop"
+    bash -c "./marko_client/run_client.sh stop"
 fi

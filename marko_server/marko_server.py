@@ -3,9 +3,10 @@
 import paho.mqtt.client as mqtt
 import json
 import dicc_json
+from decouple import config
 
-ruta = "broker.emqx.io"
-Topic = "sandia-con-pure-y-tostada"
+ruta = config('Broker_Mqtt')
+Topic = config('Topic_Mqtt')
 
 def input_Primary (dicc_python):
 	user = str(dicc_python["Usuario"])

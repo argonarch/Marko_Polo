@@ -1,11 +1,12 @@
 import psycopg2
+from decouple import config
 
 def database(ejecutador):
     connection = psycopg2.connect(
-    host = 'localhost',
-    user = 'Argon',
-    password = 'Hola',
-    database = 'Marko'
+    host = config('Postgresql_Host'),
+    user = config('Postgresql_User'),
+    password = config('Postgresql_Pass'),
+    database = config('Postgresql_DB')
     )
 
     #print('conectado')

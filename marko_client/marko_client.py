@@ -6,11 +6,14 @@
 import json
 from operator import index 
 import paho.mqtt.client as mqtt
+from decouple import config
+
 
 
 def sender(text_analized):
-    ruta = "broker.emqx.io"
-    topic = "sandia-con-pure-y-tostada"
+    ruta = config('Broker_Mqtt')
+    topic = config('Topic_Mqtt')
+
     ruta_json = "config/input_prueba.json"
     
     # Se lee el contenido del archivo json
