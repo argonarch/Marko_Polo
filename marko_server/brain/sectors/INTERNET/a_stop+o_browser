@@ -1,9 +1,0 @@
-#!/bin/bash
-
-INGRESO=$1
-
-
-
-pkill firefox
-
-bash ../bin/trinity-message "Internet" "Cerrando Firefox"

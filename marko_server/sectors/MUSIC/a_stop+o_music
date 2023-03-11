@@ -1,0 +1,8 @@
+#!/bin/bash
+
+INGRESO=$1
+
+
+pkill spotify
+
+bash ./bin/trinity-message "Musica" "Cerrando Spotify"

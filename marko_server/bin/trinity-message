@@ -3,12 +3,5 @@
 ASUNTO=$1
 MENSAJE=$2
 
-. /etc/os-release
-case "$ID" in
-neon)
-    gdbus call --session --dest org.freedesktop.Notifications --object-path /org/freedesktop/Notifications --method org.freedesktop.Notifications.Notify "$ASUNTO" 0 "" "$MENSAJE" '' \ '[]' '{"urgency": <1>}' 5000
-    ;;
-*)
-    notify-send "$ASUNTO" "$MENSAJE"
-    ;;
-esac
+
+notify-send "$ASUNTO" "$MENSAJE"

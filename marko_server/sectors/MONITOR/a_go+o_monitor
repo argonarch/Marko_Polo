@@ -1,0 +1,9 @@
+#!/bin/bash
+
+INGRESO=$1
+
+
+
+xset dpms force on
+
+bash ./bin/trinity-message "Monitor" "Monitor Encendido"

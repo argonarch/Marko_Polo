@@ -1,8 +1,0 @@
-#!/bin/bash
-
-INGRESO=$1
-
-
-spotify
-
-bash ../bin/trinity-message "Musica" "Abriendo Spotify"

@@ -6,7 +6,7 @@ import speech_recognition as sr
 import marko_client
 
 def Hotword():
-    keyword_path = ['keywords/marcopolo_es_linux.ppn']
+    keyword_path = ['lib/marcopolo_es_linux.ppn']
     access_key = '+++ Poner aqui tu access key +++'
     library_path = 'lib/libpv_porcupine.so'
     model_path = 'lib/porcupine_params_es.pv'

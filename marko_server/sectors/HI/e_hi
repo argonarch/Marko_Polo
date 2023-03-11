@@ -1,0 +1,5 @@
+#!/bin/bash
+
+INGRESO=$1
+
+bash ./bin/trinity-message "Hi" "Abrio comando hi"

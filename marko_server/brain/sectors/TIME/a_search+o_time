@@ -1,6 +1,0 @@
-#!/bin/bash
-
-
-HORAACTUAL=`date +%H:%M`
-
-bash ../bin/trinity-message "Especial" "La hora es "$HORAACTUAL""

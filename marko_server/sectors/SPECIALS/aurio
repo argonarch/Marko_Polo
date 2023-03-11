@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash ./bin/trinity-message "Especial" "Activado comando especial"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+INGRESO=$1
+
+
+
+
+firefox
+
+bash ./bin/trinity-message "Internet" "Abriendo Firefox"

@@ -1,1 +1,4 @@
 env/
+.gitignore
+marko_server/__pycache__
+marko_client/__pycache__
