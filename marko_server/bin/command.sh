@@ -1,1 +1,1 @@
-~/.config/dunst/scripts/volume mute
+~/.config/dunst/scripts/volume up

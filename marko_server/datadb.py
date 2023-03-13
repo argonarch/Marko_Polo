@@ -26,10 +26,6 @@ def create_list():
     acciones = "SELECT accion FROM sectores WHERE accion!='SPECIAL'"
     return listador_S(acciones)
 
-#def list_activators(accion):
-#    acciones = "SELECT activador FROM sectores WHERE accion='%s'"%accion
-#    return listador(acciones)
-
 def list_activators(accion):
     acciones = "select clave from activadores where id in (select activa from activadores_sectores where sector=(select id from sectores where accion='%s'))"%accion
     return listador_S(acciones)
@@ -44,6 +40,10 @@ def word_activador(accion):
 
 def encontar_comando(sector,activadores):
     acciones ="select comando from comandos where sector=(select id from sectores where accion='%s') and id in (select comando from comandos_activadores where activa in (select id from activadores where clave in (%s)) group by comando having count(comando) > 1)"%(sector,activadores)
+    return listador(acciones)
+
+def comando_special(nombre):
+    acciones = "select comando from comandos where nombre='%s'"%nombre
     return listador(acciones)
 
 def listador(acciones):

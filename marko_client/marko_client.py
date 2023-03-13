@@ -14,7 +14,7 @@ def sender(text_analized):
     ruta = config('Broker_Mqtt')
     topic = config('Topic_Mqtt')
 
-    ruta_json = "config/input_prueba.json"
+    ruta_json = "mensaje.json"
     
     # Se lee el contenido del archivo json
     dicc_principal = open(ruta_json, "r")
