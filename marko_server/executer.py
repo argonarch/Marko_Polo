@@ -2,18 +2,22 @@
 
 import subprocess
 import os
+import datadb
+
 
 def ejecutar(sector, tags, frase):
+	tags_string = "'" + "','".join(map(str, tags)) + "'"
+	print(tags_string)
 	if sector == 0:
 		file_exec = "sectors/SPECIALS/" + tags
 	else:
-		separador = "+"
-		#print(tags)
-		file_exec = "sectors/" + sector + "/" + separador.join(tags)
-	print(file_exec)
-	if os.path.exists(file_exec):
-		print("Ejecutando comando")
-		subprocess.run( ['bash', file_exec, frase], stdin=subprocess.PIPE)
-	else:
-		print("No se encuentra el archivo del comando")
-	return
+		comando = datadb.encontar_comando(sector,f"{tags_string}")
+		print(comando)
+		if isinstance(comando,str) :
+			print("Ejecutando comando")
+			with open('bin/command.sh', 'w') as f:
+				f.write(comando)
+			subprocess.run( ['bash','bin/command.sh', frase], stdin=subprocess.PIPE)
+		else:
+			print("No se encuentra el archivo del comando")
+		return

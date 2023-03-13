@@ -3,3 +3,5 @@ env/
 marko_server/__pycache__
 marko_client/__pycache__
 .env
+marko_server/test
+marko_server/.pytest_cache

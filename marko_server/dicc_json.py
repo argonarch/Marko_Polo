@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import executer
-import database
+import datadb
 
 def tagcreator(frase,modo,claves):
     commands = []
@@ -8,7 +8,7 @@ def tagcreator(frase,modo,claves):
     #print(claves)
     if modo == 1:
         for palabra in claves:
-            set_1 = set(database.word_sinonimo(palabra))
+            set_1 = set(datadb.word_sinonimo(palabra))
             #print(set_1)
             parecidos = set_1.intersection(frase_listada)
             #print (parecidos)
@@ -18,7 +18,7 @@ def tagcreator(frase,modo,claves):
     
     if modo == 2:
         for palabra in claves:
-            set_1 = set(database.word_activador(palabra))
+            set_1 = set(datadb.word_activador(palabra))
             #print(set_1)
             parecidos = set_1.intersection(frase_listada)
             #print (parecidos)
@@ -39,12 +39,12 @@ def entrada(frase):
     else:
         # Para detectar el sector (primer filtro)
         
-        sectores = database.create_list()
+        sectores = datadb.create_list()
         sector = tagcreator(frase, 1,sectores) # Modo 1 detecta solo la primera coincidencia
 
         # Para detectar los comandos en la frase (segundo filtro)
 
-        activadores = database.list_activators(sector)
+        activadores = datadb.list_activators(sector)
         set_commands = set(tagcreator(frase, 2, activadores)) # Modo 2 detecta todas las coincidencias
         
         # Para separar los comandos de la frase de los comandos habilitados por sector
@@ -52,9 +52,11 @@ def entrada(frase):
         tags_list = sorted(list(set_commands), key=str.lower)
 
         print(sector)
-        #print(set_commands)
+        print(type(sector))
+        print(set_commands)
+        print(type(set_commands))
         print(tags_list)
-
+        print(type(tags_list))
         # Ejecuta el comando
         executer.ejecutar(sector, tags_list, frase)
-        return
+        return 0

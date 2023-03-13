@@ -32,6 +32,7 @@ def Hotword():
         print(f'Using device: {recorder.selected_device}')
         
         while True:
+            
             pcm = recorder.read()
             result = porcupine.process(pcm)
             if result >= 0:

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-INGRESO=$1
-
-
-bash ./bin/trinity-message "Volume" "Se activo el volumen"

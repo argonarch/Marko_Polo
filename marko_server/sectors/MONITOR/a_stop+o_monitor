@@ -1,8 +1,0 @@
-#!/bin/bash
-
-INGRESO=$1
-
-
-
-xset dpms force off
-
