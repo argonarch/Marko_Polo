@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-import os
 import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
 import marko_client
 from decouple import config
+
 
 def Hotword():
     keyword_path = ['lib/marcopolo_es_linux.ppn']
@@ -14,10 +14,13 @@ def Hotword():
     sensitivity = [0.5]
     input_device_index = 1
     
+    AZURE_SPEECH_KEY = config('Azure_Key')
+    AZURE_LOCATION = config('Azure_Region')
+
     recognizer = sr.Recognizer()
     porcupine = None
 
-    replay_m("ready")
+    marko_client.replay_m("ready")
     try:
         porcupine = pvporcupine.create(
             access_key=access_key,
@@ -40,12 +43,13 @@ def Hotword():
                 with sr.Microphone() as source:
                     audio = recognizer.listen(source)
                 try:
-                    replay_m("working")
-                    texto = recognizer.recognize_google(audio, language="es_AR")
-                    texto_lower = marko_client.limpiar_acentos(texto)
-                    print(marko_client.sender(texto_lower))
+                    marko_client.replay_m("working")
+                    texto = recognizer.recognize_azure(audio, key=AZURE_SPEECH_KEY, location=AZURE_LOCATION, language="es-AR",show_all=True)
+                    Dicc_Reducido = texto['NBest'][0]['ITN']
+                    texto_sin_accento = marko_client.limpiar_acentos(Dicc_Reducido)
+                    print(marko_client.sender(texto_sin_accento))
                 except sr.UnknownValueError:
-                    replay_m("repit")
+                    marko_client.replay_m("repit")
                     print("No se escucho la frase")
                 except sr.RequestError as e:
                     print("Error de servicio; {0}".format(e))
@@ -54,10 +58,8 @@ def Hotword():
         print('Stopping ...')
     finally:
         if porcupine is not None:
-            print('Error que nunca deberia aparecer')
-
-
-def replay_m(folder):
-    os.system("aplay -q `ls $PWD/voice/" + folder +"/* | shuf -n 1`" )
+            porcupine.delete()
+        if recorder is not None:
+            recorder.delete()
 
 Hotword()

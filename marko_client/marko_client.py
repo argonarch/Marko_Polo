@@ -7,8 +7,7 @@ import json
 from operator import index 
 import paho.mqtt.client as mqtt
 from decouple import config
-
-
+import os
 
 def sender(text_analized):
     ruta = config('Broker_Mqtt')
@@ -36,10 +35,14 @@ def sender(text_analized):
     client.connect(ruta, 1883, 60)
     client.publish(topic, dicc_json)
 
-    return "Nesecita algo mas?"
+    replay_m("ready")
+    return 'nesecitas algo mas?'
 
-def limpiar_acentos(texto):
-    text = texto.lower()
+def replay_m(folder):
+    os.system("aplay -q `ls $PWD/voice/" + folder +"/* | shuf -n 1`" )
+    return
+
+def limpiar_acentos(text):
     acentos = { 'á': 'a', 
                 'é': 'e', 
                 'í': 'i', 
