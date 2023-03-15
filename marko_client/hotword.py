@@ -2,9 +2,11 @@
 import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
-import marko_client
+from marko_clients import sender_home, sender_cloud, replay_m
 from decouple import config
+import sys
 
+modo = sys.argv[1]
 
 def Hotword():
     keyword_path = ['lib/marcopolo_es_linux.ppn']
@@ -20,7 +22,7 @@ def Hotword():
     recognizer = sr.Recognizer()
     porcupine = None
 
-    marko_client.replay_m("ready")
+    replay_m("ready")
     try:
         porcupine = pvporcupine.create(
             access_key=access_key,
@@ -43,13 +45,16 @@ def Hotword():
                 with sr.Microphone() as source:
                     audio = recognizer.listen(source)
                 try:
-                    marko_client.replay_m("working")
+                    replay_m("working")
                     texto = recognizer.recognize_azure(audio, key=AZURE_SPEECH_KEY, location=AZURE_LOCATION, language="es-AR",show_all=True)
                     Dicc_Reducido = texto['NBest'][0]['ITN']
-                    texto_sin_accento = marko_client.limpiar_acentos(Dicc_Reducido)
-                    print(marko_client.sender(texto_sin_accento))
+                    texto_sin_accento = limpiar_acentos(Dicc_Reducido)
+                    if modo == 'cloud':
+                        print(sender_cloud(texto_sin_accento))
+                    elif modo == 'home':
+                        print(sender_home(texto_sin_accento))
                 except sr.UnknownValueError:
-                    marko_client.replay_m("repit")
+                    replay_m("repit")
                     print("No se escucho la frase")
                 except sr.RequestError as e:
                     print("Error de servicio; {0}".format(e))
@@ -62,4 +67,16 @@ def Hotword():
         if recorder is not None:
             recorder.delete()
 
-Hotword()
+def limpiar_acentos(text):
+    acentos = { 'á': 'a', 
+                'é': 'e', 
+                'í': 'i', 
+                'ó': 'o', 
+                'ú': 'u'}
+    for acen in acentos:
+        if acen in text:
+            text = text.replace(acen, acentos[acen])
+    return text
+
+if __name__ == '__main__':
+    Hotword()

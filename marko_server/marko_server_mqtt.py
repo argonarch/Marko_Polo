@@ -27,7 +27,6 @@ def on_message(client, userdata, msg):
 	if msg.topic == Topic:
 		input_dicc = msg.payload.decode()
 		print("tu entrada fue:")
-		print(input_dicc)
 		input_modif = json.loads(input_dicc)
 		print(input_modif)
 		input_Primary(input_modif)
