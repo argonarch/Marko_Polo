@@ -1,38 +1,58 @@
 # MarkoPolo
+
 Pequeño y liviano asistente para linux escrito en python.
-Es una version modificada del antiguo markopolo, que trae con sigo cambios importantes en la estructura, aplicando json, mqtt y simplificando el codigo python antiguo.
-<br>
-<br>
+Es una version modificada del antiguo [markopolo](https://github.com/argonarch/Markopolo-KDE), que trae con sigo cambios importantes en la estructura, manejo de datos, formas de comunicacion y simplificado del codigo python antiguo.
+
 Tambien corre sin necesidad de google-chrome haciendo uso de algunas minimas dependencias
 
-Incluye
-- palabra de activacion (Markopolo)
-- reconocmiento de voz (usando el servicio gratuito de google)
-- comandos personalizados configurados mediante scripts de bash
+Incluye:
 
+- palabra de activacion (Markopolo)
+- reconocmiento de voz (usando el servicio de google o azure)
+- comandos personalizables mediante scripts de bash 
+
+### Historia:
+
+Desde hace mucho tiempo he querido tener un asistente al cual le pueda mandar intrucciones que ejecuten comandos en linux, lamentablemente los asistentes virtuales mas famosos (Google Assistant, Alexa, Siri) no comprenden esta funcion por medio nativo. Navegando por github para encontrar algun proyecto que este afines a mi necesidad encontre [markopolo](https://github.com/jazx/markopolo) de jazx un proyecto que me fascino su concepto y facilidad de uso, con el tiempo las grandes ideas de jazx dieron lugar al nacimiento de [trinity](https://github.com/jazx/trinity) el cual fue una gran mejora en funcionamiento a la version anterior, con ello me di a la tarea de mejorar y simplificar el proyecto, seguiendo el legado de jazx
 
 ### Funcionamiento:
-MarkoPolo se divide en 2 partes
-- Cliente: Es el encargado de detectar la palabra de activacion, detectar la frase que dice el usario y enviar la frase juntos con otros datos*1 al servidor mediante mqtt
-- Servidor: Se encarga de recivir los datos proporcionados por el cliente, procesarlos y ejecutar los comandos correspondientes que se configuraron para la frase 
+
+Marko_Polo se divide en 3 partes
+
+- Cliente: Es el encargado de procesar el audio entrante, detectar la oracion y enviarlo al servidor mediante mqtt o por medio local (sockets)
+- Servidor: Se encarga de recibir los datos proporcionados por el cliente, procesar la oracion, detectar el contexto y palabras de claves y ejecutar los comandos correspondientes que se hayan configurado para la situacion
+- Base de datos: En el se almacenan los palabras asociadas a las palabras claves y a los contextos, como tambien los comandos que seran ejecutados
+
+
 
 El servidor esta programado para separar la frase entrante en 3 filtros:
 
-- El primero detecta si la frase se trata de un comando especial (palabras inpronunciables seleccionados), sirve para la comunicacion directa de un cliente y servidor saltandose los siguientes filtros
+- El primero detecta si la frase se trata de un comando especial, sirve para la comunicacion directa de un cliente y el servidor saltandose los filtros siguientes
 
-- El segundo sirve para detectar el "sector" al cual pertenece la frase, sirve para detectar el contexto de la frase por ejemplo: 
-si le pedimos al servidor "bajar volumen" y "bajar archinvo" la palabra "bajar" cambiara de significado para el programa dependiendo si pertenece al sector "volumen" o "archivo" y ejecutara comandos diferentes
+- El segundo sirve para detectar el "sector" al cual pertenece la frase, sirve para detectar el contexto de la oracion por ejemplo:
+  
+  - Si tomamos como entrada: "reproducir musica pop", podemos asumir que el contexto de la oracion pasa por la "musica" 
+  
+  - Si tomamos como entrada: "buscar videos de musica para todos", podemos asumir que el contexto de la oracion pasa por la "videos"  
 
-- El tercer filtro detecta todas las palabras claves escritas en los diccionarios json y los descarta segun pertenezcan al sector definido o no, 
+- El tercer filtro detecta todas las palabras claves definidas en el sector que se encuentren en la oracion 
+
+El uso del 2do filtro radica en reducir numero de procesos al no tener que filtrar todas las palabras claves y evitar confuciones a la hora de saber que comando ejecutar, por ejemplo: si dieramos "buscar videos de como reproducir musica pop" el programa no sabria si tendria que reproducir una musica o buscar un video
 
 La suma de estos filtros nos daran la direccion exacta del archivo bash que queremos ejecutar
 
-
 ### Instalacion:
+
+
+
+sudo apt install python3-pip git libatlas-base-dev screen bash portaudio
+
+
 
 Para facilidad del usuario se decidio crear un instalador automatico que se instala con el siguiente comando:
 
         curl -s "https://raw.githubusercontent.com/argonarch/trinity/main/easy-install.sh" | bash
+
 Por defecto el repositorio se instalara en la carpeta /home/"su usuario"/
 
 El cliente utiliza "Porcupine" como detector de palabra de activar y para poder utilizalo de debe crear una cuenta en [Picovoice](https://console.picovoice.ai/) e ingresar la llave de acceso que te proporcionan dentro del archivo **/Marko_Polo/client/hotword.py** (en el archivo se encuentra una indicacion de donde se debe pegar la llave)
@@ -47,20 +67,13 @@ Si tienes algun problema en el proceso de Instalacion e Ejecucion puedes comunic
 ### Tecnologias
 
 Las tecnologias que se usan en MarkoPolo son:
+
 - Python (para la programacion general) 
 - Json (para la escritura de los diccionarios)
 - Bash (para los comandos que se van a ejecutar)
 - MQTT (para la comunicacion via red o local entre cliente-servidor)
-
-
-### Creditos
-
-Cabe aclarar que todo el proyecto no hubiera sido posible sin la ayuda de [Jazx](https://github.com/jazx) y su proyecto [Trinity](https://github.com/jazx/trinity) que dio las bases con las que simentar este proyecto
-
-### instalar
-
-sudo apt install python3-pip git libatlas-base-dev screen bash portaudio
-
+- PostgreSQL
+- Docker
 
 ### Notas Finales
 
