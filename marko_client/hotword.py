@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
+
 import pvporcupine
 from pvrecorder import PvRecorder
 import speech_recognition as sr
-from marko_clients import sender_home, sender_cloud, replay_m
+from marko_clients import sender_home, sender_cloud
 from decouple import config
 import sys
+from utils import *
+from snowboy.snowboydecoder import HotwordDetector
+import signal
 
 modo = sys.argv[1]
 
 def Hotword():
+
     keyword_path = ['lib/marcopolo_es_linux.ppn']
     access_key = config('Token_Picovoce')
     library_path = 'lib/libpv_porcupine.so'
@@ -67,16 +72,44 @@ def Hotword():
         if recorder is not None:
             recorder.delete()
 
-def limpiar_acentos(text):
-    acentos = { 'á': 'a', 
-                'é': 'e', 
-                'í': 'i', 
-                'ó': 'o', 
-                'ú': 'u'}
-    for acen in acentos:
-        if acen in text:
-            text = text.replace(acen, acentos[acen])
-    return text
+def Hotword_Free():
+    recognizer = sr.Recognizer()
+    replay_m("ready")
+    print('Hotword detectado, que nesecitas?')
+    with sr.Microphone() as source:
+        audio = recognizer.listen(source)
+    try:
+        replay_m("working")
+        texto = recognizer.recognize_google(audio, language="es_AR")
+        texto_sin_accento = limpiar_acentos(texto)
+        if modo == 'cloud':
+            print(sender_cloud(texto_sin_accento))
+        elif modo == 'home':
+            print(sender_home(texto_sin_accento))
+    except sr.UnknownValueError:
+        replay_m("repit")
+        print("No se escucho la frase")
+    except sr.RequestError as e:
+        print("Error de servicio; {0}".format(e))
+
+    except KeyboardInterrupt:
+        print('Stopping ...')
+
+def signal_handler(signal, frame):
+    global interrupted
+    interrupted = True
+
+
+def interrupt_callback():
+    global interrupted
+    return interrupted
 
 if __name__ == '__main__':
-    Hotword()
+    #if config('Token_Picovoce') == '' or config('Azure_Key') == '':
+    interrupted = False
+    signal.signal(signal.SIGINT, signal_handler)
+    detector = HotwordDetector("snowboy/hotword.pmdl", sensitivity=0.47, audio_gain=1)
+    detector.start(detected_callback=Hotword_Free,
+        interrupt_check=interrupt_callback)
+    #else:
+    #    Hotword()

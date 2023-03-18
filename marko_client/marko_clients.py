@@ -5,7 +5,7 @@
 # Canal Youtube https://youtube.com/alswnet?sub_confirmation=1
 
 from decouple import config
-import os
+from utils import replay_m
 
 def sender_cloud(text_analized):
     import json
@@ -51,6 +51,4 @@ def sender_home(text_analized):
     replay_m("more")
     return 'nesecitas algo mas?'
 
-def replay_m(folder):
-    os.system("aplay -q `ls $PWD/voice/" + folder +"/* | shuf -n 1`" )
-    return
+

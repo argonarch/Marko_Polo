@@ -1,4 +1,3 @@
-env/
 .gitignore
 marko_server/__pycache__
 marko_client/__pycache__
@@ -6,3 +5,4 @@ marko_client/__pycache__
 marko_server/test/__pycache__
 marko_server/.pytest_cache
 marko_client/.pytest_cache
+env/

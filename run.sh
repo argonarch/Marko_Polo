@@ -1,8 +1,9 @@
 #!/bin/env bash
 if [ $1 == "install" ]; then
-    python3 -m venv env
-    . env/bin/activate
-    pip install -r requirements.txt
+    echo 'install marko_polo server'
+    bash -c "./marko_server/run_server.sh install" 
+    echo 'install marko_polo client'
+    bash -c "./marko_client/run_client.sh install"
 elif [ $1 == "start-cloud" ]; then
     echo 'start marko_polo client - server con mqtt'
     bash -c "./marko_server/run_server.sh start-cloud" 

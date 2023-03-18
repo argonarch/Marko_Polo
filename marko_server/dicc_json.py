@@ -29,9 +29,9 @@ def tagcreator(frase,modo,claves):
     if modo == 3:
         for palabra in claves:
             set_1 = set(datadb.word_sinonimo(palabra))
-            print(set_1)
+            #print(set_1)
             parecidos = set_1.intersection(frase_listada)
-            print (parecidos)
+            #print (parecidos)
             if parecidos != set():
                 sinonimo = ''.join(parecidos)
                 return sinonimo

@@ -1,0 +1,9 @@
+pytest==7.2.2
+python-decouple==3.8
+python-dotenv==1.0.0
+psycopg2-binary==2.9.5
+paho-mqtt==1.6.1
+
+
+
+

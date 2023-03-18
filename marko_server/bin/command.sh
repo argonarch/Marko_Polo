@@ -1,1 +1,1 @@
-~/.config/dunst/scripts/volume down
+~/.config/dunst/scripts/volume up
