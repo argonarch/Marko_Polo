@@ -105,11 +105,11 @@ def interrupt_callback():
     return interrupted
 
 if __name__ == '__main__':
-    #if config('Token_Picovoce') == '' or config('Azure_Key') == '':
-    interrupted = False
-    signal.signal(signal.SIGINT, signal_handler)
-    detector = HotwordDetector("snowboy/hotword.pmdl", sensitivity=0.47, audio_gain=1)
-    detector.start(detected_callback=Hotword_Free,
-        interrupt_check=interrupt_callback)
-    #else:
-    #    Hotword()
+    if config('Token_Picovoce') == '' or config('Azure_Key') == '':
+        interrupted = False
+        signal.signal(signal.SIGINT, signal_handler)
+        detector = HotwordDetector("snowboy/hotword.pmdl", sensitivity=0.47, audio_gain=1)
+        detector.start(detected_callback=Hotword_Free,
+            interrupt_check=interrupt_callback)
+    else:
+        Hotword()
