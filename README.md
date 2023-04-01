@@ -84,8 +84,3 @@ Cabe aclarar que todo el proyecto no hubiera sido posible sin la ayuda de [Jazx]
 
 El proyecto, aunque ahora mismo se encuentra funcional, aun esta en pañales y se esperan nuevas fucionalidades a futuro, si estas interesado en dar tu grano de arena o tu piedra de 2 kilos al proyecto no lo dudes, la ayuda siempre es bienvenida y aceptada para todos 
 
-### Contacto
-
-Telegram: https://t.me/argonarch
-
-Mail: argonarchy@gmail.com
