@@ -1,1 +1,0 @@
-~/.config/dunst/scripts/volume up
